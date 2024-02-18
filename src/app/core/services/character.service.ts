@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
-import { Character } from '../interfaces/character.interface';
+import { Character, ListCharacterResponse } from '../interfaces/character.interfaces';
 
 @Injectable({
   providedIn: 'root',
@@ -12,9 +12,9 @@ export class CharacterService {
 
   constructor(private http: HttpClient) {}
 
-  public listCharacters(page: number): Observable<Character[]> {
+  public listCharacters(page: number): Observable<ListCharacterResponse> {
     const queryParams = new HttpParams().set('page', page.toString());
 
-    return this.http.get<Character[]>(this.endpointCharacter, { params: queryParams }).pipe(take(1));
+    return this.http.get<ListCharacterResponse>(this.endpointCharacter, { params: queryParams }).pipe(take(1));
   }
 }
