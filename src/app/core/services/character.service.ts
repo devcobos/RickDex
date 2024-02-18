@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
-import { Character, ListCharacterResponse } from '../interfaces/character.interfaces';
+import { ListCharacterResponse } from '../interfaces/character.interfaces';
 
 @Injectable({
   providedIn: 'root',
