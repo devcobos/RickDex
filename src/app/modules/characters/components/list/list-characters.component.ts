@@ -20,13 +20,12 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
   private currentPage = 1;
 
   ngOnInit(): void {
-    this.loadInitialCharacters();
+    this.loadCharacters();
     this.scrollSubscription = this._scrollDispatcher.scrolled().subscribe((scrollable: void | CdkScrollable) => {
-      console.log('Evento de desplazamiento disparado', scrollable);
       if (scrollable) {
         const viewport = scrollable.measureScrollOffset('bottom');
         if (viewport < 600) {
-          this.loadMoreCharacters();
+          this.loadCharacters();
         }
       }
     });
@@ -38,20 +37,13 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
     }
   }
 
-  private loadInitialCharacters(): void {
-    this._characterSevice
-      .listCharacters(1)
-      .subscribe((data: ListCharacterResponse) => (this.characters = data.results));
-  }
-
-  private loadMoreCharacters(): void {
+  private loadCharacters(): void {
     if (this.currentPage === 42) return;
 
-    this.currentPage++;
-
-    this._characterSevice
-      .listCharacters(this.currentPage)
-      .subscribe((data: ListCharacterResponse) => this.characters.push(...data.results));
+    this._characterSevice.listCharacters(this.currentPage).subscribe((data: ListCharacterResponse) => {
+      this.characters.push(...data.results);
+      this.currentPage++;
+    });
 
     this._ref.detectChanges();
   }

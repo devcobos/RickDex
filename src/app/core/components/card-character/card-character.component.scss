@@ -1,3 +1,45 @@
 :host {
   display: block;
+
+  .rickdex-character-card {
+    background-color: #3c3e44;
+
+    &-image {
+      width: 100%;
+    }
+
+    &-header {
+      &-title {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.25rem;
+        white-space: nowrap; // Evita que el texto se divida en varias líneas
+        overflow: hidden; // Oculta el texto que sobrepasa el contenedor
+        text-overflow: ellipsis; // Añade puntos suspensivos si el texto es demasiado largo
+
+        &-text {
+          color: inherit;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        &-text:hover {
+          color: #a438b6;
+        }
+      }
+    }
+
+    &-content {
+      padding-top: 20px;
+
+      &-paragraph {
+        color: #bababa;
+      }
+    }
+  }
+
+  .icon-small {
+    font-size: 0.75rem;
+    padding-right: 3px;
+  }
 }
