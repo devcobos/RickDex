@@ -2,10 +2,10 @@ import { ResourceBase, ResponseInfo } from './base.interfaces';
 import { Location } from './location.interfaces';
 
 export interface Character extends ResourceBase {
-  status: 'Dead' | 'Alive' | 'unknown';
+  status: CharacterStatus;
   species: string;
   type: string;
-  gender: 'Female' | 'Male' | 'Genderless' | 'unknown';
+  gender: CharacterGender;
   origin: Location;
   location: Location;
   image: string;
@@ -15,4 +15,17 @@ export interface Character extends ResourceBase {
 export interface ListCharacterResponse {
   info: ResponseInfo;
   results: Character[];
+}
+
+export enum CharacterStatus {
+  Dead = 'Dead',
+  Alive = 'Alive',
+  Unknown = 'unknown',
+}
+
+export enum CharacterGender {
+  Female = 'Female',
+  Male = 'Male',
+  Genderless = 'Genderless',
+  Unknown = 'unknown',
 }

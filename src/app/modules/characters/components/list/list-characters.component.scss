@@ -1,0 +1,19 @@
+:host {
+  .rickdex-scrollable {
+    background-color: var(--mat-sidenav-content-background-color);
+
+    overflow-y: scroll;
+    width: 100%;
+    height: 100%;
+  }
+
+  .rickdex-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+
+    rickdex-card-character {
+      width: 15vw;
+    }
+  }
+}

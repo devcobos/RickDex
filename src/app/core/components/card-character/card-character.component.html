@@ -1,0 +1,15 @@
+<mat-card>
+  <img mat-card-image [src]="character.image" lazy="loading" [alt]="'Photo of a' + character.name" />
+
+  <mat-card-header>
+    <mat-card-title>{{ character.name }}</mat-card-title>
+    <mat-card-subtitle>
+      <i class="ph-fill ph-circle" style="color: greenyellow"></i> {{ character.status }} -
+      {{ character.species }}
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p>Last known location:<br />{{ character.location.name }}</p>
+    <p>First seen in:<br />{{ character.episode[0] }}</p>
+  </mat-card-content>
+</mat-card>
