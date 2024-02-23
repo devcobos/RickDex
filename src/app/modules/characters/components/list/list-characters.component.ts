@@ -67,4 +67,8 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
 
     this._ref.detectChanges();
   }
+
+  trackByCharacter(index: number, character: Character): any {
+    return character.id;
+  }
 }

@@ -1,5 +1,5 @@
 <cdk-virtual-scroll-viewport itemSize="20" class="rickdex-scrollable">
   <div class="rickdex-list">
-    <rickdex-card-character *cdkVirtualFor="let character of characters" [character]="character" />
+    <rickdex-card-character *cdkVirtualFor="let character of characters; trackBy: trackByCharacter" [character]="character" />
   </div>
 </cdk-virtual-scroll-viewport>
