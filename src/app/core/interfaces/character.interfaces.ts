@@ -1,4 +1,5 @@
 import { ResourceBase, ResponseInfo } from './base.interfaces';
+import { Episode } from './episode.interfaces';
 import { Location } from './location.interfaces';
 
 export interface Character extends ResourceBase {
@@ -10,6 +11,7 @@ export interface Character extends ResourceBase {
   location: Location;
   image: string;
   episode: string[];
+  firstEpisode: Episode; // Parámetro de Front
 }
 
 export interface ListCharacterResponse {

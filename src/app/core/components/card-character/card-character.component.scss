@@ -1,11 +1,9 @@
 :host {
-  display: block;
-
   .rickdex-character-card {
     background-color: #3c3e44;
 
     &-image {
-      width: 100%;
+      // width: 100%;
     }
 
     &-header {
@@ -24,7 +22,7 @@
         }
 
         &-text:hover {
-          color: #a438b6;
+          color: #b03dc4;
         }
       }
     }
@@ -34,6 +32,17 @@
 
       &-paragraph {
         color: #bababa;
+        display: flex;
+        flex-direction: column;
+        &-text {
+          color: inherit;
+          text-decoration: none;
+          cursor: pointer;
+        }
+
+        &-text:hover {
+          color: #6ff1b1;
+        }
       }
     }
   }

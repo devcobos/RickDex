@@ -1,9 +1,9 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input } from '@angular/core';
-import { MatCardModule } from '@angular/material/card';
+import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
-import { Character } from 'src/app/core/interfaces/character.interfaces';
+import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Character } from 'src/app/core/interfaces/character.interfaces';
 import { NoSelectDirective } from '../../directives/no-select.directive';
 
 @Component({
@@ -12,6 +12,7 @@ import { NoSelectDirective } from '../../directives/no-select.directive';
   imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, NoSelectDirective],
   templateUrl: './card-character.component.html',
   styleUrls: ['./card-character.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CardCharacterComponent {
   @Input({ required: true }) character!: Character;

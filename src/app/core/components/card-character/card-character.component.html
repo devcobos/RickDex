@@ -1,11 +1,5 @@
 <mat-card noSelect class="rickdex-character-card">
-  <img
-    mat-card-image
-    class="rickdex-character-card-image"
-    [src]="character.image"
-    lazy="loading"
-    [alt]="'Photo of a' + character.name"
-  />
+  <img mat-card-image class="rickdex-character-card-image" [src]="character.image" lazy="loading" [alt]="'Photo of a ' + character.name" />
 
   <mat-card-header class="rickdex-character-card-header">
     <mat-card-title class="rickdex-character-card-header-title">
@@ -18,7 +12,13 @@
     </mat-card-subtitle>
   </mat-card-header>
   <mat-card-content class="rickdex-character-card-content">
-    <p class="rickdex-character-card-content-paragraph">Last known location:<br />{{ character.location.name }}</p>
-    <p class="rickdex-character-card-content-paragraph">First seen in:<br />{{ character.episode[0] }}</p>
+    <p class="rickdex-character-card-content-paragraph">
+      <span class="rickdex-character-card-content-paragraph-title">Last known location:</span>
+      <span class="rickdex-character-card-content-paragraph-text">{{ character.location.name }}</span>
+    </p>
+    <p class="rickdex-character-card-content-paragraph">
+      <span class="rickdex-character-card-content-paragraph-title"> First seen in: </span>
+      <span class="rickdex-character-card-content-paragraph-text">{{ character.firstEpisode.name }}</span>
+    </p>
   </mat-card-content>
 </mat-card>
