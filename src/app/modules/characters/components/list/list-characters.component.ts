@@ -1,8 +1,8 @@
-import { ChangeDetectorRef, Component, ElementRef, OnDestroy, OnInit, ViewChild, inject } from '@angular/core';
+import { CdkScrollable, ScrollDispatcher } from '@angular/cdk/overlay';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { Character, ListCharacterResponse } from 'src/app/core/interfaces/character.interfaces';
 import { CharacterService } from 'src/app/core/services/character.service';
-import { ScrollDispatcher, CdkScrollable } from '@angular/cdk/overlay';
-import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'rickdex-list-characters',
@@ -10,9 +10,11 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./list-characters.component.scss'],
 })
 export class ListCharactersComponent implements OnInit, OnDestroy {
-  _characterSevice: CharacterService = inject(CharacterService);
+  _characterService: CharacterService = inject(CharacterService);
   _scrollDispatcher: ScrollDispatcher = inject(ScrollDispatcher);
   _ref: ChangeDetectorRef = inject(ChangeDetectorRef);
+
+  private isLoadingCharacters = false;
 
   private scrollSubscription!: Subscription;
 
@@ -31,10 +33,15 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
   }
 
   private observingScroll(): void {
-    this.scrollSubscription = this._scrollDispatcher.scrolled().subscribe((scrollable: void | CdkScrollable) => {
+    this.scrollSubscription = this._scrollDispatcher.scrolled().subscribe((scrollable: CdkScrollable | void) => {
       if (scrollable) {
-        const viewport = scrollable.measureScrollOffset('bottom');
-        if (viewport < 600) {
+        const element = scrollable.getElementRef().nativeElement;
+        const viewportHeight = element.clientHeight;
+        const scrollHeight = element.scrollHeight;
+        const scrollPosition = element.scrollTop;
+
+        const scrollPercentage = (scrollPosition / (scrollHeight - viewportHeight)) * 100;
+        if (scrollPercentage > 20) {
           this.loadCharacters();
         }
       }
@@ -42,14 +49,20 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
   }
 
   private loadCharacters(): void {
-    // TODO Esto es una chapuza. !No se muestran los ultimos personajes
-    if (this.currentPage === 43) {
+    if (this.currentPage === 43 || this.isLoadingCharacters) {
       return;
     }
 
-    this._characterSevice.listCharacters(this.currentPage).subscribe((data: ListCharacterResponse) => {
-      this.characters = [...this.characters, ...data.results];
-      this.currentPage++;
+    this.isLoadingCharacters = true;
+    this._characterService.listCharacters(this.currentPage).subscribe({
+      next: (data: ListCharacterResponse) => {
+        this.characters = [...this.characters, ...data.results];
+        this.currentPage++;
+        this.isLoadingCharacters = false;
+      },
+      error: () => {
+        this.isLoadingCharacters = false;
+      },
     });
 
     this._ref.detectChanges();
