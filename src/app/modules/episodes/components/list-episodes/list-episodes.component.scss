@@ -1,3 +1,19 @@
 :host {
-  display: block;
+  .rickdex-list-episodes {
+    &-title {
+      // TODO Esto es temporal
+      color: white;
+      padding-top: 20px;
+      padding-left: 20px;
+    }
+
+    &-content {
+      &-items {
+        display: flex;
+        justify-content: center;
+        flex-direction: row;
+        width: 15%;
+      }
+    }
+  }
 }

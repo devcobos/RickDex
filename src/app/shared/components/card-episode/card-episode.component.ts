@@ -39,7 +39,7 @@ export class CardEpisodeComponent implements OnChanges {
     if (this.loadCharacters) {
       let characters: Character[] = [];
       let delay = 0; // Retraso inicial en milisegundos
-      const delayIncrement = 250; // Incremento del retraso para cada llamada
+      const delayIncrement = 200; // Incremento del retraso para cada llamada
 
       for (const url of this.episode.characters) {
         setTimeout(() => {

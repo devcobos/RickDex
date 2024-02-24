@@ -21,7 +21,7 @@ export class ListCharactersComponent implements OnInit {
   ngOnInit(): void {
     window.setInterval(() => {
       this.loadCharacters();
-    }, 1000);
+    }, 250);
   }
 
   private loadCharacters(): void {
