@@ -3,7 +3,7 @@
 
   <mat-card-header class="rickdex-character-card-header">
     <mat-card-title class="rickdex-character-card-header-title">
-      <span class="rickdex-character-card-header-title-text" (click)="onClickTitle(character.url)">{{ character.name }}</span>
+      <a class="rickdex-character-card-header-title-text" (click)="onClickTitle(character.url)">{{ character.name }}</a>
     </mat-card-title>
     <mat-card-subtitle class="rickdex-character-card-header-subtitle">
       <mat-icon class="icon-small" [ngStyle]="getCharacterStatusStyle(character.status)" fontIcon="circle" />
@@ -14,12 +14,12 @@
   <mat-card-content class="rickdex-character-card-content">
     <p class="rickdex-character-card-content-paragraph">
       <span class="rickdex-character-card-content-paragraph-title">Last known location:</span>
-      <span class="rickdex-character-card-content-paragraph-text" (click)="onClickLastKnownLocation(character.location.url)">{{ character.location.name }}</span>
+      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickLastKnownLocation(character.location.url)">{{ character.location.name }}</a>
     </p>
 
     <p class="rickdex-character-card-content-paragraph">
       <span class="rickdex-character-card-content-paragraph-title"> First seen in: </span>
-      <span class="rickdex-character-card-content-paragraph-text" (click)="onClickFirstSeen(character.firstEpisode.url)">{{ character.firstEpisode.name }}</span>
+      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickFirstSeen(character.firstEpisode.url)">{{ character.firstEpisode.name }}</a>
     </p>
   </mat-card-content>
 </mat-card>

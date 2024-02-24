@@ -1,6 +1,5 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Character } from 'src/app/core/interfaces/character.interfaces';
@@ -9,7 +8,7 @@ import { NoSelectDirective } from '../../directives/no-select.directive';
 @Component({
   selector: 'rickdex-card-character',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatIconModule, NoSelectDirective],
+  imports: [CommonModule, MatCardModule, MatIconModule, NoSelectDirective],
   templateUrl: './card-character.component.html',
   styleUrls: ['./card-character.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
