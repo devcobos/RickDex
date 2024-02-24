@@ -1,14 +1,21 @@
 :host {
+  padding: 1%;
+
   .rickdex-scrollable {
-    overflow-y: scroll;
-    width: 100%;
-    height: 100%;
+    width: 88%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .rickdex-list {
     display: flex;
     flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
     gap: 24px;
+    // width: 86%;
 
     rickdex-card-character {
       // width: 15%;
