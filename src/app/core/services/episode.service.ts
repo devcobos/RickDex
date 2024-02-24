@@ -3,7 +3,7 @@ import { Injectable, inject } from '@angular/core';
 import { Observable, take } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
 import { Episode, ListEpisodeResponse } from '../interfaces/episode.interfaces';
-import { formatToSeason } from '../utils/episode.utils';
+import { formatToSeason } from '../../shared/utils/episode.utils';
 
 @Injectable({
   providedIn: 'root',

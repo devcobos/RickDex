@@ -2,9 +2,9 @@ import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
+import { Router } from '@angular/router';
 import { Character } from 'src/app/core/interfaces/character.interfaces';
 import { NoSelectDirective } from '../../directives/no-select.directive';
-import { Router } from '@angular/router';
 import { extracIdFromApiUrl } from '../../utils/url.utils';
 
 @Component({

@@ -1,15 +1,15 @@
 import { CommonModule } from '@angular/common';
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, SimpleChanges, inject } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
-import { NoSelectDirective } from '../../directives/no-select.directive';
-import { Character } from '../../interfaces/character.interfaces';
-import { Episode } from '../../interfaces/episode.interfaces';
-import { CharacterService } from '../../services/character.service';
-import { CardCharacterComponent } from '../card-character/card-character.component';
 import { Router } from '@angular/router';
+import { Character } from 'src/app/core/interfaces/character.interfaces';
+import { Episode } from 'src/app/core/interfaces/episode.interfaces';
+import { CharacterService } from 'src/app/core/services/character.service';
+import { NoSelectDirective } from '../../directives/no-select.directive';
 import { extracIdFromApiUrl } from '../../utils/url.utils';
+import { CardCharacterComponent } from '../card-character/card-character.component';
 
 @Component({
   selector: 'rickdex-card-episode',
