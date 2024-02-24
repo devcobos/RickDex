@@ -1,0 +1,4 @@
+<rickdex-card-episode *ngFor="let episode of episodes" [episode]="episode" />
+
+<button (click)="loadEpisodes((currentSeason = currentSeason - 1))">Previous</button>
+<button (click)="loadEpisodes((currentSeason = currentSeason + 1))">Next</button>

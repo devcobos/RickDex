@@ -1,24 +1,19 @@
 :host {
-  padding: 1%;
+  display: flex;
+  justify-content: center;
 
-  .rickdex-scrollable {
-    width: 88%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .rickdex-list {
+  .rickdex-characters-list {
+    width: 90vw;
+    background-color: #353639;
+    margin-top: 2vh;
+    padding-top: 2vh;
+    border-radius: 10px;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-around;
+  }
 
-    gap: 24px;
-    // width: 86%;
-
-    rickdex-card-character {
-      // width: 15%;
-    }
+  .rickdex-characters-list-items {
+    margin: 0 1rem 1rem 0;
   }
 }

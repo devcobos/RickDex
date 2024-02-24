@@ -4,9 +4,10 @@ import { CharactersRoutingModule } from './characters-routing.module';
 import { ListCharactersComponent } from './components/list-characters/list-characters.component';
 import { CardCharacterComponent } from 'src/app/core/components/card-character/card-character.component';
 import { ScrollingModule } from '@angular/cdk/scrolling';
+import { MatGridListModule } from '@angular/material/grid-list';
 
 @NgModule({
   declarations: [ListCharactersComponent],
-  imports: [CommonModule, CardCharacterComponent, CharactersRoutingModule, ScrollingModule],
+  imports: [CommonModule, CardCharacterComponent, CharactersRoutingModule, ScrollingModule, MatGridListModule],
 })
 export class CharactersModule {}

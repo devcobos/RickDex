@@ -4,7 +4,8 @@ import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
 import { Character } from 'src/app/core/interfaces/character.interfaces';
 import { NoSelectDirective } from '../../directives/no-select.directive';
-import { Route, Router } from '@angular/router';
+import { Router } from '@angular/router';
+import { extracIdFromApiUrl } from '../../utils/url.utils';
 
 @Component({
   selector: 'rickdex-card-character',
@@ -31,7 +32,7 @@ export class CardCharacterComponent {
 
   protected onClickFirstSeen(urlEpisode: string): void {
     if (urlEpisode) {
-      this._router.navigate(['/episode', this.extracIdFromUrl(urlEpisode)]);
+      this._router.navigate(['/episode', extracIdFromApiUrl(urlEpisode)]);
     }
   }
 
@@ -50,12 +51,5 @@ export class CardCharacterComponent {
       default:
         return { color: 'gray' };
     }
-  }
-
-  private extracIdFromUrl(url: string): string {
-    const urlParts = url.split('/');
-    const id = urlParts[urlParts.length - 1];
-
-    return id;
   }
 }

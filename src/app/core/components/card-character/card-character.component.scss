@@ -2,10 +2,12 @@
   .rickdex-character-card {
     background-color: #3c3e44;
     max-width: 300px;
+    border-radius: 2% 2% auto auto;
 
     &-image {
       width: 300px;
       height: 300px;
+      border-radius: 2% 2% 4% 4%;
     }
 
     &-header {
