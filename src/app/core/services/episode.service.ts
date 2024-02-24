@@ -12,7 +12,7 @@ export class EpisodeService {
 
   private endpointCharacter: string = `${environment.baseUrlRickAndMortyApi}/${environment.episodeUrlRickAndMortyApi}`;
 
-  public getEpisodeById(idEpisode: number): Observable<Episode> {
+  public getEpisodeById(idEpisode: number | string): Observable<Episode> {
     const endpoint = `${this.endpointCharacter}/${idEpisode}`;
 
     return this._http.get<Episode>(endpoint).pipe(take(1));

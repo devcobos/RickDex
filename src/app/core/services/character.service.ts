@@ -2,7 +2,7 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Injectable, inject } from '@angular/core';
 import { Observable, forkJoin, map, switchMap, take } from 'rxjs';
 import { environment } from 'src/enviroments/enviroment';
-import { ListCharacterResponse } from '../interfaces/character.interfaces';
+import { Character, ListCharacterResponse } from '../interfaces/character.interfaces';
 import { EpisodeService } from './episode.service';
 
 @Injectable({
@@ -38,5 +38,9 @@ export class CharacterService {
         );
       })
     );
+  }
+
+  public getCharacterByUrl(url: string): Observable<Character> {
+    return this._http.get<Character>(url).pipe(take(1));
   }
 }

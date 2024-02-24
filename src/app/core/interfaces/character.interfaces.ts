@@ -11,7 +11,7 @@ export interface Character extends ResourceBase {
   location: Location;
   image: string;
   episode: string[];
-  firstEpisode: Episode; // Parámetro de Front
+  firstEpisode?: Episode; // Parámetro de Front
 }
 
 export interface ListCharacterResponse {
