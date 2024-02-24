@@ -16,7 +16,6 @@
 
         &-text {
           color: inherit;
-          text-decoration: none;
           cursor: pointer;
         }
 
@@ -47,6 +46,8 @@
   }
 
   .icon-small {
+    width: 0.75rem;
+    height: 0.75rem;
     font-size: 0.75rem;
     padding-right: 3px;
   }

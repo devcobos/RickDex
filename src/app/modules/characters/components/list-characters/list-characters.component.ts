@@ -1,6 +1,5 @@
-import { CdkScrollable, ScrollDispatcher } from '@angular/cdk/overlay';
-import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { ScrollDispatcher } from '@angular/cdk/overlay';
+import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
 import { Character, ListCharacterResponse } from 'src/app/core/interfaces/character.interfaces';
 import { CharacterService } from 'src/app/core/services/character.service';
 
@@ -9,43 +8,20 @@ import { CharacterService } from 'src/app/core/services/character.service';
   templateUrl: './list-characters.component.html',
   styleUrls: ['./list-characters.component.scss'],
 })
-export class ListCharactersComponent implements OnInit, OnDestroy {
+export class ListCharactersComponent implements OnInit {
   _characterService: CharacterService = inject(CharacterService);
   _scrollDispatcher: ScrollDispatcher = inject(ScrollDispatcher);
   _ref: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   private isLoadingCharacters = false;
 
-  private scrollSubscription!: Subscription;
-
   protected characters: Character[] = [];
   private currentPage = 1;
 
   ngOnInit(): void {
-    this.loadCharacters();
-    this.observingScroll();
-  }
-
-  ngOnDestroy(): void {
-    if (this.scrollSubscription) {
-      this.scrollSubscription.unsubscribe();
-    }
-  }
-
-  private observingScroll(): void {
-    this.scrollSubscription = this._scrollDispatcher.scrolled().subscribe((scrollable: CdkScrollable | void) => {
-      if (scrollable) {
-        const element = scrollable.getElementRef().nativeElement;
-        const viewportHeight = element.clientHeight;
-        const scrollHeight = element.scrollHeight;
-        const scrollPosition = element.scrollTop;
-
-        const scrollPercentage = (scrollPosition / (scrollHeight - viewportHeight)) * 100;
-        if (scrollPercentage > 20) {
-          this.loadCharacters();
-        }
-      }
-    });
+    window.setInterval(() => {
+      this.loadCharacters();
+    }, 1000);
   }
 
   private loadCharacters(): void {
@@ -68,7 +44,19 @@ export class ListCharactersComponent implements OnInit, OnDestroy {
     this._ref.detectChanges();
   }
 
-  trackByCharacter(index: number, character: Character): any {
+  protected onClickTitle(urlCharacter: string) {
+    console.log(urlCharacter);
+  }
+
+  protected onClickLastKnownLocation(urlLocation: string) {
+    console.log(urlLocation);
+  }
+
+  protected onClickFirstSeen(urlEpisode: string) {
+    console.log(urlEpisode);
+  }
+
+  protected trackByCharacter(index: number, character: Character): any {
     return character.id;
   }
 }
