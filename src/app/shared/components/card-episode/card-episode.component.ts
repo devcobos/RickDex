@@ -31,7 +31,7 @@ export class CardEpisodeComponent implements OnChanges {
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['episode']) {
-      this.loadCharactersFromEpisode();
+      // this.loadCharactersFromEpisode();
     }
   }
 
@@ -43,10 +43,10 @@ export class CardEpisodeComponent implements OnChanges {
 
       for (const url of this.episode.characters) {
         setTimeout(() => {
-          this._characterService.getCharacterByUrl(url).subscribe((character) => {
-            characters.push(character);
-            this._ref.markForCheck();
-          });
+          // this._characterService.getCharacterByUrl(url).subscribe((character) => {
+          //   characters.push(character);
+          //   this._ref.markForCheck();
+          // });
         }, delay);
 
         delay += delayIncrement; // Incrementa el retraso para la próxima iteración

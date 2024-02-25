@@ -13,7 +13,7 @@
     <h2 style="color: whitesmoke; margin-top: 1.25rem">Character seen in this episode:</h2>
 
     <div class="rickdex-detail-episode-card-content-characters">
-      <rickdex-card-character *ngFor="let character of characters; trackBy: trackByCharacter" [character]="character" />
+      <rickdex-card-character *ngFor="let character of episode.characters; trackBy: trackByCharacter" [character]="character" />
     </div>
   </mat-card-content>
 </mat-card>
