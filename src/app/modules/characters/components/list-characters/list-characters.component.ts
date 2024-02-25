@@ -17,6 +17,7 @@ export class ListCharactersComponent implements OnInit {
 
   protected characters: Character[] = [];
   private currentPage = 1;
+  private loadMorePages = true;
 
   ngOnInit(): void {
     window.setInterval(() => {
@@ -25,7 +26,7 @@ export class ListCharactersComponent implements OnInit {
   }
 
   private loadCharacters(): void {
-    if (this.currentPage === 43 || this.isLoadingCharacters) {
+    if (!this.loadMorePages || this.isLoadingCharacters) {
       return;
     }
 
@@ -35,6 +36,7 @@ export class ListCharactersComponent implements OnInit {
         this.characters = [...this.characters, ...data.results];
         this.currentPage++;
         this.isLoadingCharacters = false;
+        if (!data.info.next) this.loadMorePages = false;
       },
       error: () => {
         this.isLoadingCharacters = false;

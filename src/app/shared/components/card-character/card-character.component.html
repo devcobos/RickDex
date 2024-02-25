@@ -19,8 +19,8 @@
 
     <p class="rickdex-character-card-content-paragraph">
       <span class="rickdex-character-card-content-paragraph-title"> First seen in: </span>
-      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickFirstSeen(character.episode[0])">
-        {{ character.firstEpisode?.name ?? 'Nombre no disponible' }}
+      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickFirstSeen(character.episode[0].id)">
+        {{ character.episode[0].name }} ({{ character.episode[0].episode }})
       </a>
     </p>
   </mat-card-content>

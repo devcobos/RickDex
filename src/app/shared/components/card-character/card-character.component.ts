@@ -5,7 +5,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { Router } from '@angular/router';
 import { Character } from 'src/app/core/interfaces/character.interfaces';
 import { NoSelectDirective } from '../../directives/no-select.directive';
-import { extracIdFromApiUrl } from '../../utils/url.utils';
 
 @Component({
   selector: 'rickdex-card-character',
@@ -30,9 +29,9 @@ export class CardCharacterComponent {
     this.clickedTitle.emit(urlCharacter);
   }
 
-  protected onClickFirstSeen(urlEpisode: string): void {
-    if (urlEpisode) {
-      this._router.navigate(['/episode', extracIdFromApiUrl(urlEpisode)]);
+  protected onClickFirstSeen(idEpisode: number): void {
+    if (idEpisode) {
+      this._router.navigate(['/episode', idEpisode]);
     }
   }
 
