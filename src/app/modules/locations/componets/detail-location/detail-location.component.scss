@@ -1,3 +1,10 @@
 :host {
-  display: block;
+  padding: 1%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  rickdex-card-location {
+    width: 87%;
+  }
 }

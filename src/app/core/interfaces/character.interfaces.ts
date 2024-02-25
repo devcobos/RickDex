@@ -1,14 +1,14 @@
 import { ResourceBase, ResponseInfo } from './base.interfaces';
 import { Episode } from './episode.interfaces';
-import { Location } from './location.interfaces';
+import { LocationInterface } from './location.interfaces';
 
 export interface Character extends ResourceBase {
   status: CharacterStatus;
   species: string;
   type: string;
   gender: CharacterGender;
-  origin: Location;
-  location: Location;
+  origin: LocationInterface;
+  location: LocationInterface;
   image: string;
   episode: Episode[];
 }

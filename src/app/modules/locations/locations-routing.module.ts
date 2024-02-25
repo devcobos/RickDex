@@ -8,7 +8,7 @@ const LOCATIONS_ROUTES: Routes = [
   {
     path: ':idLocation',
     component: DetailLocationComponent,
-    resolve: { episode: locationResolver },
+    resolve: { location: locationResolver },
   },
 ];
 

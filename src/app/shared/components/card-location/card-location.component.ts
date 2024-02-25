@@ -29,7 +29,7 @@ export class CardLocationComponent {
 
   protected navigateToDetailLocation(idLocation: number): void {
     if (idLocation) {
-      this._router.navigate(['/episode', idLocation]);
+      this._router.navigate(['/location', idLocation]);
     }
   }
 }

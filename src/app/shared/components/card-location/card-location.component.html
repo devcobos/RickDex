@@ -1,18 +1,21 @@
-<mat-card noSelect class="rickdex-detail-episode-card">
-  <mat-card-header class="rickdex-detail-episode-card-header">
-    <mat-card-title class="rickdex-detail-episode-card-header-title">
-      <span class="rickdex-detail-episode-card-header-title-text" (click)="navigateToDetailLocation(location.id)">{{ location.type }}: {{ location.name }}</span>
+<mat-card noSelect class="rickdex-detail-location-card">
+  <mat-card-header class="rickdex-detail-location-card-header">
+    <mat-card-title class="rickdex-detail-location-card-header-title">
+      <span class="rickdex-detail-location-card-header-title-text" (click)="navigateToDetailLocation(location.id)">{{ location.type }} {{ location.name }}</span>
     </mat-card-title>
-    <mat-card-subtitle class="rickdex-detail-episode-card-header-subtitle">
-      {{ location.dimension }}
+    <mat-card-subtitle class="rickdex-detail-location-card-header-subtitle">
+      <mat-icon fontIcon="my_location" class="rickdex-detail-location-card-header-subtitle-icon" />
+      <span class="rickdex-detail-location-card-header-subtitle-text">
+        {{ location.dimension }}
+      </span>
     </mat-card-subtitle>
   </mat-card-header>
-  <mat-card-content class="rickdex-detail-episode-card-content" *ngIf="loadCharacters">
+  <mat-card-content class="rickdex-detail-location-card-content" *ngIf="loadCharacters">
     <mat-divider />
 
     <h2 style="color: whitesmoke; margin-top: 1.25rem">Residents:</h2>
 
-    <div class="rickdex-detail-episode-card-content-characters">
+    <div class="rickdex-detail-location-card-content-characters">
       <rickdex-card-character *ngFor="let character of location.residents; trackBy: trackByCharacter" [character]="character" />
     </div>
   </mat-card-content>
