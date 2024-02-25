@@ -1,3 +1,42 @@
 :host {
-  display: block;
+  .rickdex-detail-episode-card {
+    background-color: #353639;
+    width: 100%;
+
+    &-header {
+      &-title {
+        color: #ffffff;
+        font-weight: bold;
+        font-size: 1.25rem;
+
+        &-text {
+          color: inherit;
+          cursor: pointer;
+          text-decoration: none;
+        }
+
+        &-text:hover {
+          color: #b03dc4;
+        }
+      }
+    }
+
+    &-content {
+      padding-top: 20px;
+
+      &-characters {
+        display: flex;
+        flex-direction: row;
+        gap: 1.25rem;
+        flex-wrap: wrap;
+      }
+    }
+  }
+
+  .icon-small {
+    width: 0.75rem;
+    height: 0.75rem;
+    font-size: 0.75rem;
+    padding-right: 3px;
+  }
 }

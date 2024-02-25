@@ -1,7 +1,8 @@
 import { ResourceBase } from './base.interfaces';
+import { Character } from './character.interfaces';
 
-export interface Location extends ResourceBase {
+export interface LocationInterface extends ResourceBase {
   type: string;
   dimension: string;
-  residents: string[];
+  residents: Character[];
 }
