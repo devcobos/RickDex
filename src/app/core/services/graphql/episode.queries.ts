@@ -34,3 +34,23 @@ export const GET_EPISODE = gql`
     }
   }
 `;
+
+export const LIST_EPISODES = gql`
+  query episodes($season: String) {
+    episodes(filter: { episode: $season }) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        created
+        episode
+        air_date
+      }
+    }
+  }
+`;

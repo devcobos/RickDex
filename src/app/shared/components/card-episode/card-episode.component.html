@@ -1,7 +1,7 @@
 <mat-card noSelect class="rickdex-detail-episode-card">
   <mat-card-header class="rickdex-detail-episode-card-header">
     <mat-card-title class="rickdex-detail-episode-card-header-title">
-      <span class="rickdex-detail-episode-card-header-title-text" (click)="navigateToDetailEpisode(episode.url)">{{ episode.episode }}: {{ episode.name }}</span>
+      <span class="rickdex-detail-episode-card-header-title-text" (click)="navigateToDetailEpisode(episode.id)">{{ episode.episode }}: {{ episode.name }}</span>
     </mat-card-title>
     <mat-card-subtitle class="rickdex-detail-episode-card-header-subtitle">
       {{ episode.air_date }}

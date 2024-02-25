@@ -1,4 +1,3 @@
-import { StringValueNode } from 'graphql';
 import { ResourceBase, ResponseInfo } from './base.interfaces';
 import { Episode } from './episode.interfaces';
 import { Location } from './location.interfaces';
@@ -17,10 +16,6 @@ export interface Character extends ResourceBase {
 export interface ListCharacterResponse {
   info: ResponseInfo;
   results: Character[];
-}
-
-export interface ListCharacterInput {
-  page: number;
 }
 
 export enum CharacterStatus {
