@@ -1,9 +1,9 @@
 <mat-card noSelect class="rickdex-character-card">
-  <img mat-card-image class="rickdex-character-card-image" [src]="character.image" lazy="loading" [alt]="'Photo of a ' + character.name" />
+  <img mat-card-image class="rickdex-character-card-image" [src]="character.image" lazy="loading" [alt]="'Photo of ' + character.name" />
 
   <mat-card-header class="rickdex-character-card-header">
     <mat-card-title class="rickdex-character-card-header-title">
-      <a class="rickdex-character-card-header-title-text" (click)="onClickTitle(character.url)">{{ character.name }}</a>
+      <a class="rickdex-character-card-header-title-text" (click)="onClickTitle(character.id)">{{ character.name }}</a>
     </mat-card-title>
     <mat-card-subtitle class="rickdex-character-card-header-subtitle">
       <mat-icon class="icon-small" [ngStyle]="getCharacterStatusStyle(character.status)" fontIcon="circle" />
@@ -14,7 +14,7 @@
   <mat-card-content class="rickdex-character-card-content">
     <p class="rickdex-character-card-content-paragraph">
       <span class="rickdex-character-card-content-paragraph-title">Last known location:</span>
-      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickLastKnownLocation(character.location.url)">{{ character.location.name }}</a>
+      <a class="rickdex-character-card-content-paragraph-text" (click)="onClickLastKnownLocation(character.location.id)">{{ character.location.name }}</a>
     </p>
 
     <p class="rickdex-character-card-content-paragraph">
