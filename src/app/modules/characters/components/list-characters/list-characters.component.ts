@@ -1,5 +1,5 @@
 import { ScrollDispatcher } from '@angular/cdk/overlay';
-import { ChangeDetectorRef, Component, OnInit, inject } from '@angular/core';
+import { ChangeDetectorRef, Component, OnDestroy, OnInit, inject } from '@angular/core';
 import { Character, ListCharacterResponse } from 'src/app/core/interfaces/character.interfaces';
 import { CharacterService } from 'src/app/core/services/character.service';
 
@@ -8,21 +8,28 @@ import { CharacterService } from 'src/app/core/services/character.service';
   templateUrl: './list-characters.component.html',
   styleUrls: ['./list-characters.component.scss'],
 })
-export class ListCharactersComponent implements OnInit {
+export class ListCharactersComponent implements OnInit, OnDestroy {
   _characterService: CharacterService = inject(CharacterService);
   _scrollDispatcher: ScrollDispatcher = inject(ScrollDispatcher);
   _ref: ChangeDetectorRef = inject(ChangeDetectorRef);
 
   private isLoadingCharacters = false;
-
+  private intervalId: any;
   protected characters: Character[] = [];
   private currentPage = 1;
   private loadMorePages = true;
 
   ngOnInit(): void {
-    window.setInterval(() => {
+    this.loadCharacters(); // Carga inicial sin retraso
+    this.intervalId = window.setInterval(() => {
       this.loadCharacters();
-    }, 250);
+    }, 350);
+  }
+
+  ngOnDestroy() {
+    if (this.intervalId) {
+      clearInterval(this.intervalId); // Limpia el intervalo cuando el componente se destruya
+    }
   }
 
   private loadCharacters(): void {
