@@ -1,0 +1,8 @@
+<rickdex-card-location *ngFor="let location of locations" [location]="location" [loadCharacters]="false" />
+
+<div class="rickdex-list-episodes-actions">
+  <button mat-mini-fab color="primary" *ngIf="previousPage" (click)="loadLocations(previousPage)">
+    <mat-icon fontIcon="navigate_before" />
+  </button>
+  <button mat-mini-fab color="primary" *ngIf="nextPage" (click)="loadLocations(nextPage)"><mat-icon fontIcon="navigate_next" /></button>
+</div>

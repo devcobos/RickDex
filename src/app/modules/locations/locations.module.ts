@@ -6,9 +6,10 @@ import { MatIconModule } from '@angular/material/icon';
 import { CardLocationComponent } from 'src/app/shared/components/card-location/card-location.component';
 import { DetailLocationComponent } from './componets/detail-location/detail-location.component';
 import { LocationsModuleRoutingModule } from './locations-routing.module';
+import { ListLocationsComponent } from './componets/list-locations/list-locations.component';
 
 @NgModule({
-  declarations: [DetailLocationComponent],
+  declarations: [DetailLocationComponent, ListLocationsComponent],
   imports: [CommonModule, LocationsModuleRoutingModule, MatButtonModule, CardLocationComponent, MatDividerModule, MatIconModule],
 })
 export class LocationsModule {}

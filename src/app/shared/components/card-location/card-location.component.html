@@ -6,7 +6,7 @@
     <mat-card-subtitle class="rickdex-detail-location-card-header-subtitle">
       <mat-icon fontIcon="my_location" class="rickdex-detail-location-card-header-subtitle-icon" />
       <span class="rickdex-detail-location-card-header-subtitle-text">
-        {{ location.dimension }}
+        {{ location.dimension ? location.dimension : 'Unknown Location' }}
       </span>
     </mat-card-subtitle>
   </mat-card-header>

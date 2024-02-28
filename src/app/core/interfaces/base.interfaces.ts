@@ -7,6 +7,6 @@ export interface ResourceBase {
 export interface ResponseInfo {
   count: number;
   pages: number;
-  next: string;
-  prev: string;
+  next: number;
+  prev: number;
 }
