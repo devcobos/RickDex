@@ -4,7 +4,7 @@ import { Character } from './character.interfaces';
 export interface Episode extends ResourceBase {
   air_date: string;
   episode: string;
-  characters: Character[];
+  characters?: Character[];
 }
 
 export interface ListEpisodeResponse {

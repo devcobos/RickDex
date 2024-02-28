@@ -34,3 +34,23 @@ export const GET_LOCATION = gql`
     }
   }
 `;
+
+export const LIST_LOCATIONS = gql`
+  query location($page: Int) {
+    locations(page: $page) {
+      info {
+        count
+        pages
+        next
+        prev
+      }
+      results {
+        id
+        name
+        created
+        type
+        dimension
+      }
+    }
+  }
+`;
