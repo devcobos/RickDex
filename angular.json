@@ -58,10 +58,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "RickDex:build:production"
+              "buildTarget": "RickDex:build:production"
             },
             "development": {
-              "browserTarget": "RickDex:build:development"
+              "buildTarget": "RickDex:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -69,7 +69,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "RickDex:build"
+            "buildTarget": "RickDex:build"
           }
         },
         "test": {
